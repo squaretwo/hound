@@ -26,10 +26,11 @@ defmodule Hound.SessionTest do
   end
 
   test "make_capabilities deep merges chromeOptions" do
-    %{chromeOptions: resulting_options} =
+    assert %{chromeOptions: resulting_options, browserName: "chrome"} =
       Session.make_capabilities(
         "chrome_headless",
         driver: %{
+          browserName: "chrome",
           chromeOptions: %{
             "args" => [
               "--window-size=1920x1080"

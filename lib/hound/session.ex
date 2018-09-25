@@ -86,5 +86,7 @@ defmodule Hound.Session do
     end)
   end
 
-  defp deep_merge(list1, list2), do: list1 ++ list2
+  defp deep_merge(list1, list2) when is_list(list1) and is_list(list2), do: list1 ++ list2
+
+  defp deep_merge(_value1, value2), do: value2
 end
